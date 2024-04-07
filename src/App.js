@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useTransition, useState, useId, useSyncExternalStore } from 'react';
+import { Suspense } from 'react';
+import { DataComp } from './components/DataComp';
+import TabContainer from './components/TabContainer';
+import { CounterComponent } from './components/CounterComponent';
+
 
 function App() {
+  const idOne = useId();
+  const idTwo = useId();
+  const idThree = useId();
+
+  
+  // flushSync
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CounterComponent/>
+      <CounterComponent/>
+      <CounterComponent/>
+      
+
+      {/* {idOne} {idTwo} {idThree} */}
+      {/* <TabContainer/> */}
+      {/* <Suspense fallback={<p style={{background: 'red'}}>Loading, please wait...</p>}>
+        <DataComp />
+      </Suspense> */}
     </div>
   );
 }
